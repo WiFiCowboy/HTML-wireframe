@@ -12,6 +12,8 @@
     <main>
         <div class="box startQuiz">
             <h1>The Matrix Quiz!</h1>
+            <div class='score'>Question: <span class="questionNumber">1</span> Score: <span class="ScoreCount">0</span> of 5</div>
+            <div class="homePage">
             <div class="image">Image</div>
             <h2>Quiz Rules</h2>
             <ul>
@@ -20,71 +22,18 @@
                 <li>Score points based on Correct/Incorrect answers</li>
                 <li>Total points calculated at end of the quiz</li>
             </ul>
-            <button>Start</button>
+            <button id='js-start-quiz'>Start</button>
+            </div>
         </div>
         <div class="box questions">
             <div class="quizQuestions">
-                <h2>Question 1</h2>
-                <p>Whom does Thomas Anderson help to take out her garbage?</p>
-                <ol>
-                    <li>Answer: Land Lady</li>
-                    <li>Black Widow</li>
-                    <li>Trinity</li>
-                    <li>Acid Burn</li>
-                </ol>
-                <div class='score'>Score Correct:0 |Incorrect: 0</div>
+                <h2 class="currentQuestion"></h2>
+                <ol class="displayQuestions"></ol>
                 <button>Submit</button>
-            </div>
-            <div class="quizQuestions">
-                <h2>Question 2</h2>
-                <p>What are Agents?</p>
-                <ol>
-                    <li>Controlling software</li>
-                    <li>Interactive Sentinels</li>
-                    <li>Federal programs</li>
-                    <li>Answer: Sentient programs</li>
-                </ol>
-                <div class='score'>Score Correct:0 |Incorrect: 0</div>
-                <button>Submit</button>
-            </div>
-            <div class="quizQuestions">
-                <h2>Question 3</h2>
-                <p>Who is this quote from 'The answer is out there, Neo. It's looking for you. And, it will find you, if you want it to.'</p>
-                <ol>
-                    <li>Morpheus</li>
-                    <li>Tank</li>
-                    <li>Mouse</li>
-                    <li>Answer: Trinity</li>
-                </ol>
-                <div class='score'>Score Correct:0 |Incorrect: 0</div>
-                <button>Submit</button>
-            </div>
-            <div class="quizQuestions">
-                <h2>Question 4</h2>
-                <p>After Morpheus makes the big jump in the jump program, what does Neo exclaim?</p>
-                <ol>
-                    <li>Answer: “Whoa!”</li>
-                    <li>"Excellent!"</li>
-                    <li>“I am an FBI agent!”</li>
-                    <li>“Bogus!”</li>
-                </ol>
-                <div class='score'>Score Correct:0 |Incorrect: 0</div>
-                <button>Submit</button>
-            </div>
-            <div class="quizQuestions">
-                <h2>Question 5</h2>
-                <p>Agent Smith claims that this, above all else, is what he hates the most about having to be among humans in The Matrix.</p>
-                <ol>
-                    <li>The ugliness of people</li>
-                    <li>The stupidity</li>
-                    <li>Boredom</li>
-                    <li>Answer: The smell</li>
-                </ol>
-                <div class='score'>Score Correct:0 |Incorrect: 0</div>
-                <button>Submit</button>
+                <button>Reset</button>
             </div>
         </div>
-        <div class="box correctAnswer">
+        <!-- <div class="box correctAnswer">
             <h2>You selected the correct answer</h2>
             <div class="image">Image</div>
             <button>Next Question</button>
@@ -99,10 +48,11 @@
             <p>Your final score is</p>
             <div class='score'>Score Correct:0 |Incorrect: 0</div>
             <button>Try Again?</button>
-        </div>
+        </div> -->
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
     </script>
+    <script src="store.js"></script>
     <script src="app.js"></script>
     
 </body>
