@@ -1,24 +1,42 @@
-main {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+html{
+    font-family: 'Roboto', sans-serif;
+ }
 
-}
-/* .box {
+
+ 
+.container {
     display: flex;
+    flex-direction: column;
+    flex-flow: center;
     align-items: center;
-    justify-content: center;
+    height: 500px;
 }
-*/
-.box div {
-    width: 500px;
-    /* border: 1px solid black; */
-  } 
 
-.startQuiz, .questions, .correctAnswer, .wrongAnswer, .endOfQuiz, .quizQuestions {
-    border: 1px solid black;
-    margin: 10px;
+ul {
+    list-style: none;
+}
+
+.box1 {
+    text-align: center;
+
+}
+
+.score-style {
+    margin: 17px;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+}
+
+.style-QA {
+    font-size: 18px;
+}
+
+.style-msg {
+    background-color: black;
 }
 
 button {
@@ -31,14 +49,79 @@ button {
     height: 50px;
 }
 
-.score {
-    text-align: center;
-    background-color: black;
-    color: white;
+fieldset {
+    border: 0px;
 }
 
-.image {
+.something {
+    display: list-item;
+    flex-direction: column;
     text-align: center;
-    margin: 4px;
-    border: 1px solid black;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.finalText {
+    padding-bottom: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+@media only screen and (max-width: 375px){
+    .box1{
+        height: 400px;
+        padding: 10px;
+        font-size: 20px;
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+    .container{
+        background-color: black;
+        color: white;
+    }
+    .style-QA,.style-msg,.score-style{
+        background-color: black;
+    }
+    img {
+        height: 150px;
+        width: 150px;
+        margin: auto;
+        padding: 10px;
+    }
+}
+@media only screen and (min-width: 376px){
+    .box1{
+        height: 500px;
+        padding: 10px;
+        font-size: 20px;
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+    .container{
+        height: 1000px;
+        color: white;
+        background-image: url(assets/matrixCode.jpg);
+        background-size: cover;
+      }
+    .style-QA, .box4{
+        background-color: black;
+    }
+    img {
+        height: 200px;
+        width: 200px;
+        margin: auto;
+        padding: 15px;
+    }
+    .style-msg, .style-QA, .box4{
+        padding: 30px;
+    }
 }

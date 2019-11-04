@@ -4,56 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>redo quiz app</title>
     <link rel="stylesheet" href="wireframe.css">
-    <title>Greybox wireframe</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <main>
-        <div class="box startQuiz">
-            <h1>The Matrix Quiz!</h1>
-            <div class='score'>Question: <span class="questionNumber">1</span> Score: <span class="ScoreCount">0</span> of 5</div>
-            <div class="homePage">
-            <div class="image">Image</div>
-            <h2>Quiz Rules</h2>
-            <ul>
-                <li>Answer questions</li>
-                <li>select an answer from multiple choice</li>
-                <li>Score points based on Correct/Incorrect answers</li>
-                <li>Total points calculated at end of the quiz</li>
-            </ul>
-            <button id='js-start-quiz'>Start</button>
+    <main role="main" class="container">
+        <header>
+            <section>
+                <h1>The Matrix Quiz!</h1>
+            </section>
+        </header>
+        <section class="quizStart">
+            <div class="box1">
+                <h2>Quiz Rules</h2>
+                <ul>
+                    <li>Answer questions</li>
+                    <li>Select an answer from multiple choice</li>
+                    <li>Score points based on the correct answers</li>
+                    <li>Total points calculated at end of the quiz</li>
+                </ul>
+                <button id='js-start-quiz'>Start</button>
             </div>
-        </div>
-        <div class="box questions">
-            <div class="quizQuestions">
-                <h2 class="currentQuestion"></h2>
-                <ol class="displayQuestions"></ol>
-                <button>Submit</button>
-                <button>Reset</button>
+        </section>
+        <section class="score-style js-score">
+            <div class="js-score-box">Question: <span class="js-question-number"> 0</span> Score: <span class="js-score-count">0</span> of 5</div>
+        </section>
+        <section class="style-QA quizQA">
+        </section>
+        <section class="style-msg quizAnswerMsg">
+            <div>Your choice: <span class="js-display-question">Question goes here!</span> was <span class="js-answer-message">Correct/Wrong</span> 
+            <img src="https://media1.giphy.com/media/V2ojLo7PvhVug/giphy.webp?cid=790b7611b28633076b17932b0fa31587061986ad544ffc6d&rid=giphy.webp" alt="Neo motioning hand">
+            <button class="js-next-question">Next</button>
             </div>
-        </div>
-        <!-- <div class="box correctAnswer">
-            <h2>You selected the correct answer</h2>
-            <div class="image">Image</div>
-            <button>Next Question</button>
-        </div>
-        <div class="box wrongAnswer">
-            <h2>You selected the incorrect answer</h2>
-            <div class="image">Image</div>
-            <button>Next Question</button>
-        </div>
-        <div class="box endOfQuiz">
-            <h2>You completed the quiz!</h2>
-            <p>Your final score is</p>
-            <div class='score'>Score Correct:0 |Incorrect: 0</div>
-            <button>Try Again?</button>
-        </div> -->
+        </section>
+        <section class="endQuizMsg">
+            <div class="box4">
+                <p class="finalText">Your Final Score is Score: <span class="js-score-count">0</span> of 5</p>
+                <img class="styleImg" src="https://media3.giphy.com/media/rvsIuQkF1iL3G/giphy.webp?cid=790b761179a08c58cfff45cb39a5eb51f24b63dbdaca5116&rid=giphy.webp" alt="Neo flying">
+                <button class="js-reset-quiz">Reset</button>
+            </div>
+        </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
     </script>
-    <script src="store.js"></script>
     <script src="app.js"></script>
-    
 </body>
 </html>
