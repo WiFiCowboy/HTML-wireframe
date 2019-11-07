@@ -120,6 +120,7 @@ function createQuestions(){
         console.log('No more questions found!')
         displayEndMsg();
     }
+    $('.js-score-count').text(score);
 };
 
 
@@ -153,10 +154,19 @@ function getAnswers(){
 function handleAnswerSubmit(){
     $('#formQA').on('submit', function(event){
         event.preventDefault();
-        let radioSelected = $('input:checked');
-        let radioAnswer = radioSelected.val();
+        let radioSelected;
+        radioSelected = $('input:checked');
+        let radioAnswer;
+        radioAnswer = radioSelected.val();
         let correct = STORE[questionNumber].correctAnswer;
-        if(correct === radioAnswer){
+        if(correct !== radioAnswer){
+            console.log("the wrong answer was selected!");
+            displayQAMsg();
+            $('.js-answer-message').text('Wrong!');
+            $('.js-display-question').text(radioAnswer);
+            nextQuestion();
+            incrementQuestionNumber();
+        }else{
             console.log("the correct answer was selected!");
             displayQAMsg();
             incrementScore();
@@ -164,14 +174,7 @@ function handleAnswerSubmit(){
             $('.js-display-question').text(correct);
             nextQuestion();
             incrementQuestionNumber();
-        }else{
-            console.log("the wrong answer was selected!");
-            displayQAMsg();
-            $('.js-answer-message').text('Wrong!');
-            $('.js-display-question').text(radioAnswer);
-            nextQuestion();
-            incrementQuestionNumber();
-        };
+        }
     });
 };
 
@@ -200,7 +203,7 @@ function updateQuestionNumber(){
 // Increase score counter
 function incrementScore(){
     score++;
-    $('.js-score-count').text(score);
+    // $('.js-score-count').text(score); 
 };
 
 // Increase question counter
