@@ -164,6 +164,7 @@ function handleAnswerSubmit(){
             displayQAMsg();
             $('.js-answer-message').text('Wrong!');
             $('.js-display-question').text(radioAnswer);
+            $('#imageAnswer').attr('src', 'https://media3.giphy.com/media/ydBzMGqNz2ehG/giphy.webp?cid=790b76113d7d4b3742b186851d407adc8bed6c566a448eca&rid=giphy.webp');
             nextQuestion();
             incrementQuestionNumber();
         }else{
@@ -172,6 +173,7 @@ function handleAnswerSubmit(){
             incrementScore();
             $('.js-answer-message').text('Correct!');
             $('.js-display-question').text(correct);
+            $('#imageAnswer').attr('src', 'https://media1.giphy.com/media/V2ojLo7PvhVug/giphy.webp?cid=790b7611b28633076b17932b0fa31587061986ad544ffc6d&rid=giphy.webp');
             nextQuestion();
             incrementQuestionNumber();
         }
