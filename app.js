@@ -68,7 +68,6 @@ function displayStart(){
     $('.quizQA').hide();
     $('.quizAnswerMsg').hide();
     $('.endQuizMsg').hide();
-    console.log('Quiz Start displayed');
 };
 // render state
 function displayQA(){
@@ -77,7 +76,6 @@ function displayQA(){
     $('.quizQA').show();
     $('.quizAnswerMsg').hide();
     $('.endQuizMsg').hide();
-    console.log('Quiz QA displayed');
 };
 // render state
 function displayQAMsg(){
@@ -86,7 +84,6 @@ function displayQAMsg(){
     $('.quizQA').hide();
     $('.quizAnswerMsg').show();
     $('.endQuizMsg').hide();
-    console.log('Quiz QA MSG displayed');
 };
 // render state
 function displayEndMsg(){
@@ -95,13 +92,11 @@ function displayEndMsg(){
     $('.quizQA').hide();
     $('.quizAnswerMsg').hide();
     $('.endQuizMsg').show();
-    console.log('End of quiz displayed');
 };
 
 // start quiz
 function startQuiz(){
     $('#js-start-quiz').on('click', function(){
-        console.log('the quiz has started');
         // call render question and answer something()
         createQuestions();
     }       
@@ -110,14 +105,12 @@ function startQuiz(){
 // display QA or end message
 function createQuestions(){
     if(questionNumber < STORE.length){
-        console.log(questionNumber);
         displayQA();
         getQuestion();
         getAnswers();
         // incrementQuestionNumber(); Need to call after handle answer submit 
         updateQuestionNumber();
     }else{
-        console.log('No more questions found!')
         displayEndMsg();
     }
     $('.js-score-count').text(score);
@@ -127,7 +120,6 @@ function createQuestions(){
 // loop through question 
 function getQuestion(){
     // gets question 
-    console.log(STORE[questionNumber].question);
         $('.quizQA').html(`<form id="formQA">
         <fieldset>
         <legend class="questionText">${STORE[questionNumber].question}</legend>
@@ -139,7 +131,6 @@ function getQuestion(){
 function getAnswers(){
     // get answers
     STORE[questionNumber].answers.forEach(function(answerValue, answerIndex){
-        console.log(`${answerValue} : ${answerIndex}`);
         $(`<label class="something" for="${answerIndex}">
         <input class="radio" type="radio" id="${answerIndex}" value="${answerValue}" name="answer" required>
         <span>${answerValue}</span>
@@ -160,7 +151,6 @@ function handleAnswerSubmit(){
         radioAnswer = radioSelected.val();
         let correct = STORE[questionNumber].correctAnswer;
         if(correct !== radioAnswer){
-            console.log("the wrong answer was selected!");
             displayQAMsg();
             $('.js-answer-message').text('Wrong!');
             $('.js-display-question').text(radioAnswer);
@@ -168,7 +158,6 @@ function handleAnswerSubmit(){
             nextQuestion();
             incrementQuestionNumber();
         }else{
-            console.log("the correct answer was selected!");
             displayQAMsg();
             incrementScore();
             $('.js-answer-message').text('Correct!');
@@ -183,7 +172,6 @@ function handleAnswerSubmit(){
 // cycle through next question
 function nextQuestion(){
     $('.js-next-question').on('click', function(){
-        console.log('Next button clicked!');
         createQuestions();
     });
 };
@@ -206,6 +194,7 @@ function updateQuestionNumber(){
 function incrementScore(){
     score++;
     // $('.js-score-count').text(score); 
+    scoreKeeper();
 };
 
 // Increase question counter
@@ -216,12 +205,23 @@ function incrementQuestionNumber(){
 // restore quiz to zero state
 function resetQuiz(){
     $('.js-reset-quiz').on('click',function(){
-        console.log("reset button clicked");
         questionNumber = 0;
         score = 0;
         displayStart();
     });
 }
+
+function scoreKeeper(){
+    if(score === 5) {
+        $('.styleImg').attr('src','https://media.giphy.com/media/6xE1FNcorRInS/giphy.gif')
+    } else if (score === 4 ) {
+        $('.styleImg').attr('src','https://media3.giphy.com/media/rvsIuQkF1iL3G/giphy.webp?cid=790b761179a08c58cfff45cb39a5eb51f24b63dbdaca5116&rid=giphy.webp');
+    } else if (score === 3 ) {
+        $('.styleImg').attr('src','https://media.giphy.com/media/MC6eSuC3yypCU/giphy.gif'); 
+    } else {
+        $('.styleImg').attr('src','https://media.giphy.com/media/8LbYKVeqQkKRi/giphy.gif');
+    }
+};
 
 // Control for running app
 function controller(){
